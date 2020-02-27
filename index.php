@@ -11,8 +11,8 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-         <div class="col-md-4"></div>
-         <div class="col-md-4">
+         <div class="col-md-3"></div>
+         <div class="col-md-6">
             <form id="regForm" class="card" action="output.php" method="post">
                 <div class="card-header alert alert-primary">
                     <h2 class="text-center">Form</h2>
@@ -29,8 +29,8 @@
                         <input placeholder="First name..." type ="text" oninput="this.className = ''" name="fName">
                     </div>
                     <div class="form-group">
-                        <label class="text-success">Middle Name</label>
-                        <input placeholder="Middle name..." type ="text" oninput="this.className = ''" name="mName">
+                        <label class="text-success">Full middle Name</label>
+                        <input placeholder="Full middle name..." type ="text" oninput="this.className = ''" name="mName">
                     </div>
                     <div class="form-group">
                         <div class="form-check">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group">
                         <label class="text-success">Contact Number</label>
-                        <input placeholder="Contact..." type="text" class="form-control" name="contact">
+                        <input placeholder="+63 + 10 digit number" type="text" class="form-control" name="contact">
                     </div>
                 </div>
 
@@ -103,11 +103,11 @@
                     </div>
                     <div class="form-group">
                         <label class="text-success">School Year</label>
-                        <input placeholder="School Year..."class="form-control" type="text" name="SY">
+                        <input placeholder="YYY-YYYY..."class="form-control" type="text" name="SY">
                     </div>
                     <div class="form-group">
                         <label class="text-success">Email</label>
-                        <input placeholder="Email..." class="form-control" type="email" name="email">
+                        <input placeholder="example@domain.com" class="form-control" type="email" name="email">
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@
             </form>
          
          </div>
-         <div class="col-md-4"></div>
+         <div class="col-md-3"></div>
         
         </div>
     </div>

@@ -1,39 +1,25 @@
 <?php
-    /* CHECKS CONTACTS CONTAINS JUST NUMBERS AND STARTS WITH +63 */
-    /* function checkContact($data = null){
-        return (preg_match('/(\+63)/',$data) && preg_match('/^[\+\d]{0,13}$/',$data)) ? true : false ;
-    } */
+   // validates the data type of the file
+   function checkType($type){
 
-    /* function checkFirstAndLastName($data){
-        return (preg_match('/^[\w]{2,}$/',$data)) ? true : false;
-    } */
-    /* FUNCTION TO CHECK IF INPUTS STARTS WITH NUMBERS OR SYMBOLS and also tags*/
-    /* function checkStartingInput($data = null){
-        return (preg_match('/^[^0-9^\.!@#$%^&*()_\-\+=:"??><,]{1}+[a-zA-z@-\s\.]+$/',$data) ) ? true : false;
-    }
-    function sY($data = null){
-        return (preg_match('/^[\d\-]{9}+$/',$data)) ? true : false;
+    $allowed = array('jpg', 'jpeg', 'png');
+    $fileExt = explode('/', $type);
+    $fileExt = strtolower(end($fileExt));
+    return in_array($fileExt, $allowed) ? true : false ;
+
     }
 
-
-
-    /* FUNCTION TO VALIDATE EMAIL */
-    /* function properEmail($data = null){
-        return(preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/',$data)) ? true : false;
+    function checkSize($size){
+        return ($size <= 1000000) ? true : false;
     }
 
-    /* CHECKS CONTACTS CONTAINS JUST NUMBERS AND STARTS WITH +63 */
-    /* function checkContact($data ){
-        return (is_numeric(substr($data,1,13)) && substr($data, 0, 3) == "+63" && strlen($data)==13) ? true : false ;
-    } */
-
-    /* FUNCTION TO CHECK IF INPUTS STARTS WITH NUMBERS OR SYMBOLS and also tags*/
-    /* function checkStartingInput($data){
-        return (preg_match()) ? true : false;
+    function checkIfFileExist($file){
+        return (!file_exists($file)) ? true : false;
     }
-  */
 
-    /* ------------------------------------------- */
+    function moveFile($file,$targetDir){
+        return  move_uploaded_file($file,$targetDir);
+    }
 
     function checkInput($data){
         $regex = '/^[^\W]$/';  //list of now word 

@@ -1,5 +1,5 @@
 <?php
-
+    include_once('dbconnect.php');
     include_once('validate.php');
 
     $lastname = $_POST['lName'];
@@ -16,19 +16,13 @@
     $course = $_POST['course'];
     $SY = $_POST['SY'];
     $email = $_POST['email'];
+    $file = $_FILES['file'];
 
-    /* echo "Name:",$lastname,$firstname,$middlename,"<br>";
-    echo "address:",$address,"<br>";
-    echo "birthday:",$DOB,"<br>";
-    echo "place of birth:",$POB,"<br>";
-    echo "gender:",$sex,"<br>";
-    echo "gaurdian:",$guardian,"<br>";
-    echo "contact:",$contact,"<br>";
-    echo "civil status:",$status,"<br>";
-    echo "year level:",$year,"<br>";
-    echo "course:",$course,"<br>";
-    echo "school year:",$SY,"<br>";
-    echo "email:",$email,"<br>"; */
+    $dir = "uploads/";
+
+    if($conn){
+        echo "connected <br>";
+    }
     
     /* check if last name  is more than 2 character
         and does not start in special character */
@@ -138,6 +132,31 @@
         
         echo "Email bad <br>";
         
+    }
+
+
+    /* file validation */
+    if(checkType($file['type'])){
+        if(checkSize($file['size'])){
+            $targetDir = $dir.basename($file['name']);
+            if(checkIfFileExist($targetDir)){
+               if(moveFile($file['tmp_name'],$targetDir)){
+                echo "[{$file['name']}] succesful <br>";
+               /*  echo '
+                <div class="col-md-3">
+                    <img src="'.$dir . '/' . $file['name'].'" alt="..." style="width:250px; height:auto;">
+                </div>'; */
+               }else{
+                   echo "error upload";
+               }
+            }else{
+                echo "[{$file['name']}] file exist <br>";
+            }
+        }else{
+            echo "[{$file['name']}] file To Large <br>";
+        }
+    }else{
+        echo "[{$file['name']}] this file type is not allowed <br>";
     }
 
 

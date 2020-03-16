@@ -13,13 +13,32 @@
         <div class="row">
          <div class="col-md-3"></div>
          <div class="col-md-6">
-            <form id="regForm" class="card" action="output.php" method="post">
+            <form id="regForm" class="card" action="output.php" method="post" enctype="multipart/form-data">
                 <div class="card-header alert alert-primary">
                     <h2 class="text-center">Form</h2>
                 </div>
                 <!-- One "tab" for each step in the form: -->
+                <!-- step 1 tab -->
                 <div class="tab">
                     <label>Step 1</label>
+                    <div class="form-group">
+                        <label class="text-success">Username</label>
+                        <input placeholder="Username..." type="text" class="form-control" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-success">Password</label>
+                        <input placeholder="Password..." class="form-control" type="password" name="password">  
+                    </div>
+                    <div class="form-group">
+                        <label class="text-success">Repassword</label>
+                        <input placeholder="Repassword..." class="form-control" type="password" name="repassword">
+                    </div>
+                </div>
+
+
+                <!-- step 2 tab -->
+                <div class="tab">
+                    <label>Step 2</label>
                     <div class="form-group">
                         <label class="text-success">Last Name</label>
                         <input placeholder="Last name..." type ="text" oninput="this.className = ''" name="lName">
@@ -47,9 +66,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- step 2 tab -->
+                <!-- step 3 tab -->
                 <div class="tab">
-                    <label>Step 2</label>
+                    <label>Step 3</label>
                     <div class="form-group">
                         <label class="text-success">Address</label>
                         <input placeholder="address..." type="text" class="form-control" name="address">
@@ -64,9 +83,9 @@
                     </div>
                 </div>
 
-                <!-- step 3 tab -->
+                <!-- step 4 tab -->
                 <div class="tab">
-                    <label>Step 3</label>
+                    <label>Step 4</label>
                     <div class="form-group">
                         <label class="text-success">Civil Status</label>
                         <input placeholder="Civil Status..." class="form-control" type="text" name="status">
@@ -81,9 +100,10 @@
                     </div>
                 </div>
 
-                <!-- step 4 tab -->
-                <div class="tab">
-                    <label>Step 4</label>
+
+                 <!-- step 5 tab -->
+                 <div class="tab">
+                    <label>Step 5</label>
                     <div class="form-group">
                         <label class="text-success">Year level</label>
                         <select class="form-control" name="yearLevel">
@@ -111,6 +131,15 @@
                     </div>
                 </div>
 
+                <!-- step 6 tab -->
+                <div class="tab">
+                    <label>Step 6</label>
+                    <div class="form-group">
+                        <label class="text-success">Upload Profile Picture</label>
+                        <input type="file" name="file">
+                    </div>
+                </div>
+
 
                 <div style="overflow:auto;">
                     <div style="float:right;">
@@ -118,8 +147,14 @@
                     <button type="button" id="nextBtn" class="btn btn-primary" onclick="nextPrev(1)">Next</button>
                     </div>
                 </div>
+
+
+                
+
                 <!-- Circles which indicates the steps of the form: -->
                 <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>
